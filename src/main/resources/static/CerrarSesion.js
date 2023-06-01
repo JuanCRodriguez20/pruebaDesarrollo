@@ -1,3 +1,10 @@
 function cerrarSesion() {
-    window.location.href = "https://github.com/logout";
+    var logoutUrl = 'http://localhost:8080/logout';
+
+    $.post(logoutUrl, function() {
+        $("#user").html('');
+        $(".unauthenticated").show();
+        $(".authenticated").hide();
+        window.location.href = "/";
+    });
 }
