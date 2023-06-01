@@ -37,7 +37,7 @@ public class UsuarioController {
         return usuarioService.update(usuario);
     }
 
-    @DeleteMapping("/{id}")  //  ->>>>> localhost..../api/Usuario/12
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable int id){
         return usuarioService.delete(id);
