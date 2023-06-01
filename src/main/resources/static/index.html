@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Prueba Desarrollo</title>
+</head>
+<body class="bg-image"
+    style = "background-image: url('https://www.popsci.com/uploads/2020/06/05/3NIEQB3SFVCMNHH6MHZ42FO6PA.jpg?auto=webp');
+             height: 100%;
+             background-repeat: no-repeat;
+             background-size: cover;
+             background-attachment: fixed;">
+    
+        <div style="width: 80%; text-align: center; margin: auto; padding: 2%;">
+            <h1 class="display-2 fw-bold">Bienvenido a mi prueba de desarrollo</h1>
+
+            <p class="fs-1 container unauthenticated">
+                Para iniciar sesión con GitHub haz click <a href="/oauth2/authorization/github">aquí</a>.
+            </p>
+
+            <p class="fs-2 container authenticated" style="display: none">
+                Bienvenido <span id="usuario"></span><br>
+                <button class="btn btn-primary" onclick="location.href='homePage.html';">Continuar</button>
+            </p>
+        </div>
+   
+</body>
+<script type="text/javascript">
+    $.get("/user", function (data){
+        $("#usuario").html(data.name);
+        $(".unauthenticated").hide();
+        $(".authenticated").show();
+    });
+
+</script>
+</html>
